@@ -26,7 +26,7 @@ mongoose.connect(URI,{
 if (process.env.NODE_ENV) {
 app.use(express.static(path.join(__dirname, './client/build')))
 console.log(__dirname, '/client/build')
-
+}
 // app.get('*', function(_, res) {
 //   res.sendFile(path.resolve(__dirname, './client/build/index.html'), function(err) {
 //     if (err) {
