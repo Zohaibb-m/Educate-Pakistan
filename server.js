@@ -14,9 +14,6 @@ app.use(cors());
 app.use("/users",userRouter);
 app.use('/api/Notes',noteRouter)
 
-app.get("/",(req,res)=>{
-    res.send("Hello");
-})
 
 const URI=process.env.MONGODB_URL
 mongoose.connect(URI,{
