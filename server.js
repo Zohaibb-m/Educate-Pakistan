@@ -25,6 +25,7 @@ mongoose.connect(URI,{
 }) 
 
 app.use(express.static(path.join(__dirname, './client/build')))
+console.log(__dirname, './client/build')
 
 app.get('*', function(_, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'), function(err) {
@@ -33,6 +34,7 @@ app.get('*', function(_, res) {
     }
   })
 })
+console.log(__dirname, './client/build/index.html')
 
 
 const PORT=process.env.PORT || 5000
