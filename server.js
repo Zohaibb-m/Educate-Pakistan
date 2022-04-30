@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, './client/build')))
 console.log(__dirname, '/client/build')
 
 app.get('*', function(_, res) {
-  res.sendFile(path.resolve(__dirname, './client/public/index.html'), function(err) {
+  res.sendFile(path.resolve(__dirname, './client/build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
