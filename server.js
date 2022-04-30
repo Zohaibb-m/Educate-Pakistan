@@ -27,15 +27,15 @@ if (process.env.NODE_ENV) {
 app.use(express.static(path.join(__dirname, './client/build')))
 console.log(__dirname, '/client/build')
 
-app.get('*', function(_, res) {
-  res.sendFile(path.resolve(__dirname, './client/build/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
-console.log(__dirname, './client/build/index.html')
-}
+// app.get('*', function(_, res) {
+//   res.sendFile(path.resolve(__dirname, './client/build/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
+// console.log(__dirname, './client/build/index.html')
+// }
 
 const PORT=process.env.PORT || 5000
 app.listen(PORT,()=>{
