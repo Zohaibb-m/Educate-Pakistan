@@ -28,19 +28,52 @@ function Login({setLogin}){
         }
     }
 
+    const gStyle={
+        backgroundColor:'#df4930 !important'
+    }
+
     return (
-        <section>
-        <div className="login">
-            <h1>Login</h1>
-            <form onSubmit={loginSubmit}>
-                <input type='email' required name="email" id="login-email" value={user.email} onChange={onChangeInput}/>
-                <input type='password' required name="password" id="login-password" value={user.password} autoComplete="true" onChange={onChangeInput}/>
-                <button type="submit">Login</button>
-            </form>
-            <h3>Not a User?</h3><button><Link to="/register">Register</Link></button>
-            <h3>{err}</h3>
-            
-        </div>
+        <section className="ftco-section"> 
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-12 col-lg-10">
+                            <div className="wrap d-md-flex">
+                                <div className="img" style={{backgroundColor: "#8DD7CF"}}>
+                                </div>
+                                <div className="login-wrap p-4 p-md-5">
+                                    <div className="form-group mb-3">
+                                        <button type="submit" className="form-control btn btn-primary rounded submit px-3 fbStyle"> <span className="fa fa-large fa-facebook-square" ></span> | Login In Using Facebook </button>
+                                    </div>
+                                    <div className="form-group mb-3">
+                                        <button type="submit" className="form-control btn btn-primary btn-social btn-facebook rounded submit px-3 gStyle"><span className=" fa fa-google-plus-square"></span> | Login In Using Google+ </button>
+                                    </div>
+                                    <form onSubmit={loginSubmit} className="signin-form">
+                                        <div className="form-group mb-3">
+                                            <label className="label" htmlFor="email">Email</label>
+                                            <input type='email' required name="email" id="login-email" value={user.email} onChange={onChangeInput} className="form-control" />
+                                        </div>
+                                        <div className="form-group mb-3">
+                                            <label className="label" htmlFor="password">Password</label>
+                                            <input type='password' required className="form-control" name="password" id="login-password" value={user.password} autoComplete="true" onChange={onChangeInput}/>
+                                        </div>
+                                        <div className="form-group">
+                                            <button type="submit" className="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                            <h6 className="error">{err}</h6>
+                                        </div>
+                                        <div className="form-group d-md-flex">
+                                            <div className="w-50 text-left">
+                                            </div>
+                                            <div className="w-50 text-right justify-content-end">
+                                                <a href="#">Forgot Password</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <p className="text-center">Not a User?<button className="btn-signup"><Link to="/register">SignUp</Link></button></p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
 }

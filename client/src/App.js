@@ -29,7 +29,6 @@ function App() {
   
   return (
     <div>
-    <h1>Welcome</h1>
     <Router>
     <Routes>
     <Route path="/" element={<Home isLogin={isLogin} setLogin={setLogin} />} />
