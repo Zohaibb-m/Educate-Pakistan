@@ -5,7 +5,7 @@ function Home(props){
   
   return (
     <div>
-    <h1>Educate Pakistan Home Page (Testing Phase On)</h1>
+    <h1>Educate Pakistan Home Page</h1>
     <Link to="/login">Login</Link><br />
     <Link to="/register">Register</Link> <br />
     </div>

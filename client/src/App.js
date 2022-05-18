@@ -16,7 +16,7 @@ function App() {
         const verified = await Axios.get('users/verify',{
           headers:{Authorization:token}
         })
-        setLogin(verified.data)
+        setLogin(verified.data) 
         if(!verified.data)localStorage.clear()
       }
       else{

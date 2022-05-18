@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import Axios from 'axios'
 import {BrowserRouter as Router, Route, Link,  useNavigate } from 'react-router-dom'
 function Login({setLogin}){
-    let [user,setUser]=useState({username:"",email:"",password:""})
+    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:""})
     let [err,setErr]=useState("")
     const navigate=useNavigate();
 
@@ -18,7 +18,7 @@ function Login({setLogin}){
                 email:user.email,
                 password:user.password
             })
-            setUser({username:'',email:'',password:''})
+            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:""})
             localStorage.setItem('tokenStore',res.data)
             console.log(res.data)
             setLogin(true)
