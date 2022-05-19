@@ -3,21 +3,25 @@ const express=require('express');
 const mongoose=require('mongoose');
 const cors=require('cors');
 const userRouter=require('./routes/userRouter')
-const noteRouter=require('./routes/noteRouter')
+const adminRouter=require('./routes/adminRouter')
 const path = require("path")
+const AdminBro = require('admin-bro')
+const AdminBroMongoose = require('admin-bro-mongoose')
+
+
 const app=express();
 app.use(express.json());
 app.use(cors());
 
 
-
+AdminBro.registerAdapter(AdminBroMongoose)
 app.use("/users",userRouter);
-app.use('/api/Notes',noteRouter)
+app.use("/admin",adminRouter);
 
 
 const URI=process.env.MONGODB_URL
 mongoose.connect(URI,{
-    useNewUrlParser:true,
+    useNewUrlParser:true, 
     useUnifiedTopology:true
 },err=>{
     if(err)throw err;
