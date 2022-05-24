@@ -5,16 +5,10 @@ const cors=require('cors');
 const userRouter=require('./routes/userRouter')
 const adminRouter=require('./routes/adminRouter')
 const path = require("path")
-const AdminBro = require('admin-bro')
-const AdminBroMongoose = require('admin-bro-mongoose')
-
-
 const app=express();
 app.use(express.json());
 app.use(cors());
 
-
-AdminBro.registerAdapter(AdminBroMongoose)
 app.use("/users",userRouter);
 app.use("/admin",adminRouter);
 
