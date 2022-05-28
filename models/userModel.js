@@ -6,6 +6,10 @@ const userSchema=new mongoose.Schema({
         required:true,
         trim:true
     },
+    roleID:{
+        type:Number,
+        required:true
+    },
     lastname:{
         type:String,
         required:true,
