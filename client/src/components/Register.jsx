@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import Axios from 'axios'
 import {Link, useNavigate} from "react-router-dom"
 function Login({setLogin}){
-    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:1})
+    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
 	console.log(user)
     let [err,setErr]=useState("")
     const navigate=useNavigate();
@@ -27,7 +27,7 @@ function Login({setLogin}){
                 birthday:document.getElementById("birthday").value,
                 gender:user.gender
             })
-            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:1})
+            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
             console.log(res.data.token)
             setErr(res.data)
         } catch (err) {
@@ -35,12 +35,16 @@ function Login({setLogin}){
         }
     }
     return (
-        <section className="ftco-section">
+        <section className="ftco-section" style={{backgroundColor: "#8DD7CF"}}>
 		<div className="container">
 			<div className="row justify-content-center">
 				<div className="col-md-12 col-lg-10">
 					<div className="wrap d-md-flex">
-						<div className="img"  style={{backgroundColor: "#8DD7CF"}}>
+						<div className="img"  style={{backgroundColor: "#5d9691"}}>
+						<div>
+							<h1 className="welcome-content">Register</h1>
+							<p className="welcome-content-p">Welcome on Board. Captain!</p>
+						</div>
 			            </div>
 						<div className="login-wrap p-4 p-md-5">
 					        <div className="form-group mb-3 mb3-style">

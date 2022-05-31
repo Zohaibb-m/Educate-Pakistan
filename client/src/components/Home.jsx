@@ -1,14 +1,12 @@
 import React from "react-dom"
 import { Link } from "react-router-dom";
-
+import User from "./User"
 function Home(props){
   
   return (
     
     <div>
-    <h1>Educate Pakistan Home Page</h1>
-    <Link to="/login">Login</Link><br />
-    <Link to="/register">Register</Link> <br />
+      <User />
     </div>
   );
 }

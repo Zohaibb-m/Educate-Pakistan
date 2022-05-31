@@ -1,9 +1,12 @@
 const Users = require('../models/userModel')
+const Subjects = require('../models/subjectSchema')
+const Grades = require('../models/gradeSchema')
+const Courses = require('../models/courseSchema')
 const bcrypt=require('bcrypt');
 const { hash } = require('bcrypt');
 const jwt=require('jsonwebtoken')
 
-const userCtrl={ 
+const userCtrl={  
     registerUser: async (req,res)=>{
         try {
             const {firstname,lastname,birthday,email,password,cpassword,gender,roleID}=req.body;
@@ -42,7 +45,11 @@ const userCtrl={
             //Login Successful
             const payload={id:user._id,username:user.username}
             const token=jwt.sign(payload,process.env.TOKEN_SECRET,{expiresIn:"1d"})
-            res.json(token)
+            const result={
+                token:token,
+                role:user.roleID
+            }
+            res.json(result)
             // res.json("Login a User");
         } catch (err) {
             return res.status(500).json(err.message);

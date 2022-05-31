@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import Axios from 'axios'
 import {BrowserRouter as Router, Route, Link,  useNavigate } from 'react-router-dom'
 function Login({setLogin}){
-    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:1})
+    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
     let [err,setErr]=useState("")
     const navigate=useNavigate();
 
@@ -18,11 +18,12 @@ function Login({setLogin}){
                 email:user.email,
                 password:user.password
             })
-            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:1})
-            localStorage.setItem('tokenStore',res.data)
-            console.log(res.data)
+            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
+            localStorage.setItem('tokenStore',res.data.token)
+            console.log(res.data.token)
             setLogin(true)
-            navigate("/UserHome");
+            if(res.data.role==1)navigate("/User")
+            else navigate("/Teacher")
         } catch (err) {
             err.response.data.msg && setErr(err.response.data.msg)
         }
@@ -33,12 +34,16 @@ function Login({setLogin}){
     }
 
     return (
-        <section className="ftco-section"> 
+        <section className="ftco-section" style={{backgroundColor: "#8DD7CF"}}> 
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-12 col-lg-10">
                             <div className="wrap d-md-flex">
-                                <div className="img" style={{backgroundColor: "#8DD7CF"}}>
+                                <div className="img" style={{backgroundColor: "#5d9691",border: "1px solid black"}}>
+                                    <div >
+                                        <h1 className="welcome-content">Login</h1>
+                                        <p className="welcome-content-p">Glad you're back Captain</p>
+                                    </div>
                                 </div>
                                 <div className="login-wrap p-4 p-md-5">
                                     <div className="form-group mb-3">

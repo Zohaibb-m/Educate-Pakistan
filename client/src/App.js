@@ -4,7 +4,9 @@ import Login from "./components/Login"
 import {BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Register from "./components/Register"
 import Home from "./components/Home"
-import UserHome from "./components/UserHome";
+import User from "./components/User";
+import Teacher from "./components/Teacher";
+import Header from "./components/Header"
 
 function App() {
   var [isLogin,setLogin]=useState(false);
@@ -26,15 +28,17 @@ function App() {
     }
     checkLogin()
   })
-  
+   
   return (
     <div>
+      <Header />
     <Router>
     <Routes>
     <Route path="/" element={<Home isLogin={isLogin} setLogin={setLogin} />} />
     <Route path="/register" element={<Register />} />
     <Route path="/login" element={<Login setLogin={setLogin}/>} />
-    <Route path="/UserHome" element={<UserHome setLogin={setLogin}/>} />
+    <Route path="/User" element={<User />} />
+    <Route path="/Teacher" element={<Teacher />} />
     </Routes>
     </Router>
     </div>
