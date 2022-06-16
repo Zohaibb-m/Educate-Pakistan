@@ -1,22 +1,40 @@
 import React from "react-dom"
 import { Link } from "react-router-dom";
-
+import User_Dashboard from "./User_Dashboard";
 function Home(props){
-  
-  function logout(){
-    localStorage.clear();
-    props.setLogin(false);
-  }
   if (props.isLogin)
     return (
       <div>
-    <h1>{props.User.firstname} {props.User.lastname}</h1>
-    <Link onClick={logout} to="/">Log Out</Link>
+    <User_Dashboard User={props.User} />
     </div>
     );
   else return(
     <div>
-        User
+        <h1>Home Page </h1>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
     </div>
   )
 }

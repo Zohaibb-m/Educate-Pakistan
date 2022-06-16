@@ -3,7 +3,7 @@ const mongoose=require('mongoose')
 const courseSchema=new mongoose.Schema({
     courseName:{
         type:String,
-        required:true,
+        required:true, 
     },
     grade:{
         type: mongoose.Types.ObjectId,
@@ -14,6 +14,12 @@ const courseSchema=new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Subjects',
         required:true
+    },
+    courseImage:{
+        type:String,
+    },
+    courseDescrition:{
+        type:String
     }
 },{timestamps:true}
 ) 

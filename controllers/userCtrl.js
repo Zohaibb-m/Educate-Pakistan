@@ -6,10 +6,10 @@ const bcrypt=require('bcrypt');
 const { hash } = require('bcrypt');
 const jwt=require('jsonwebtoken')
  
-const userCtrl={   
+const userCtrl={    
     registerUser: async (req,res)=>{
         try {
-            const {firstname,lastname,birthday,email,password,cpassword,gender,roleID}=req.body;
+            const {firstname,lastname,birthday,email,password,cpassword,gender,mobileNo}=req.body;
             username1=firstname
             const user=await Users.findOne({email:email})
             if (user)return res.json("The email already exists");
@@ -17,15 +17,16 @@ const userCtrl={
             else {res.json("The Passwords didnt match!")}
             const hashPassword=await bcrypt.hash(password,10);
             const newUser=new Users({
-                roleID:roleID,
                 firstname:firstname,   
                 lastname:lastname,
                 username:username1,
                 gender:gender,
                 birthday:birthday,
                 email:email,
-                password:hashPassword 
+                password:hashPassword,
+                mobileNo:mobileNo
             })
+            console.log(mobileNo , "HEHEHEHE")
             console.log(newUser)
             await newUser.save();
             res.json("Register a User");

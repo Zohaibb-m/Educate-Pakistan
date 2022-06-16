@@ -36,7 +36,7 @@ function App() {
    
   return (
     <div>
-    <Header />
+    <Header isLogin={isLogin} User={user}/>
     <Router>
     <Routes>
     <Route path="/" element={<Home isLogin={isLogin} setLogin={setLogin} User={user}/>} />

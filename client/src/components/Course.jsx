@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Link,  useNavigate, useParams } from 're
 function Course(props){
     let {courseID}=useParams()
     let [state,setState]=useState({
-        course:""
+        course:false
     })
     useEffect(()=>{async function getData(){
         await Axios.post("/data/getCourseData",{
@@ -19,9 +19,18 @@ function Course(props){
     }
     getData() 
 }, [])
-    return (
+console.log("../images/"+String(state.course.courseImage),state.course,"H")
+    if(!state.course)return(
+        <div>
+            Loading...
+        </div>
+    )
+    else 
+        return (
             <div>
-                <h1>{state.course.courseName}</h1>          
+                <img src={require("../images/"+String(state.course.courseImage))} />
+                <h1>Course Name: {state.course.courseName}</h1>
+                <p>Description: {state.course.courseDescrition} </p>
             </div>
     );
 }

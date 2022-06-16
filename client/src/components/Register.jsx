@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react";
 import Axios from 'axios'
 import {Link, useNavigate} from "react-router-dom"
 function Login({setLogin}){
-    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
+    let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",mobileNo:""})
 	console.log(user)
     let [err,setErr]=useState("")
     const navigate=useNavigate();
@@ -18,16 +18,16 @@ function Login({setLogin}){
         try {
             // console.log(user,"HEllo")
             const res=await Axios.post("/users/register",{
-				roleID:user.roleID,
                 firstname:user.firstname,
                 lastname:user.lastname,
                 email:user.email,
                 password:user.password,
                 cpassword:user.cpassword,
                 birthday:document.getElementById("birthday").value,
-                gender:user.gender
+                gender:user.gender,
+				mobileNo:"+92 456 7892292"
             })
-            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
+            setUser({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",mobileNo:""})
             console.log(res.data.token)
             setErr(res.data)
         } catch (err) {

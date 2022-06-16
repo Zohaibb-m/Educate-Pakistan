@@ -1,14 +1,10 @@
 const mongoose=require('mongoose')
-
+ 
 const userSchema=new mongoose.Schema({
     firstname:{
         type:String,
         required:true,
         trim:true
-    },
-    roleID:{
-        type:Number,
-        required:true
     },
     lastname:{
         type:String,
@@ -24,7 +20,7 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
         trim:true
-    },
+    }, 
     birthday:{
         type:Date,
         required:true,
@@ -36,6 +32,10 @@ const userSchema=new mongoose.Schema({
         unique:true
     },
     password:{
+        type:String,
+        required:true 
+    },
+    mobileNo:{
         type:String,
         required:true
     }
