@@ -5,7 +5,7 @@ const Courses = require('../models/courseSchema')
 const bcrypt=require('bcrypt');
 const { hash } = require('bcrypt');
 const jwt=require('jsonwebtoken')
-
+ 
 const userCtrl={   
     registerUser: async (req,res)=>{
         try {

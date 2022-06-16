@@ -16,7 +16,7 @@ function Login({setLogin}){
     const registerSubmit=async e=>{
         e.preventDefault();
         try {
-            console.log(user,"HEllo")
+            // console.log(user,"HEllo")
             const res=await Axios.post("/users/register",{
 				roleID:user.roleID,
                 firstname:user.firstname,

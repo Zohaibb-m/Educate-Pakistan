@@ -8,7 +8,7 @@ function Course(props){
         course:""
     })
     useEffect(()=>{async function getData(){
-        await Axios.post("http://localhost:5000/data/getCourseData",{
+        await Axios.post("/data/getCourseData",{
             id:courseID
         })
             .then((response)=>{

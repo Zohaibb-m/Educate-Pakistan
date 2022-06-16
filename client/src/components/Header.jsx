@@ -8,7 +8,7 @@ function Header(){
   
     useEffect(()=>{
         async function getSubjects(){
-            await Axios.post("http://localhost:5000/data/getData")
+            await Axios.post("/data/getData")
                 .then((response)=>{
                     setState({courses:response.data})
                     console.log(state.courses)
