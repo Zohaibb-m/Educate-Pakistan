@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import Axios from 'axios'
 import {BrowserRouter as Router, Route, Link,  useNavigate } from 'react-router-dom'
-function Login({setLogin}){
+function Login({setLogin,isLogin}){
     let [user,setUser]=useState({firstname:"",lastname:"",gender:"",email:"",password:"",birthday:"",cpassword:"",roleID:2})
     let [err,setErr]=useState("")
     const navigate=useNavigate();
@@ -22,8 +22,7 @@ function Login({setLogin}){
             localStorage.setItem('tokenStore',res.data.token)
             console.log(res.data.token)
             setLogin(true)
-            if(res.data.role==1)navigate("/User")
-            else navigate("/Teacher")
+            
         } catch (err) {
             err.response.data.msg && setErr(err.response.data.msg)
         }
@@ -32,14 +31,14 @@ function Login({setLogin}){
     const gStyle={
         backgroundColor:'#df4930 !important'
     }
-
+    if (isLogin)navigate("/")
     return (
-        <section className="ftco-section" style={{backgroundColor: "#8DD7CF"}}> 
+        <section className="ftco-section" style={{backgroundColor: "#fafafa"}}> 
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-12 col-lg-10">
                             <div className="wrap d-md-flex">
-                                <div className="img" style={{backgroundColor: "#5d9691",border: "1px solid black"}}>
+                                <div className="img" style={{backgroundColor: "#5d9691"}}>
                                     <div >
                                         <h1 className="welcome-content">Login</h1>
                                         <p className="welcome-content-p">Glad you're back Captain</p>

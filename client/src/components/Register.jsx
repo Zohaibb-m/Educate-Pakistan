@@ -35,7 +35,7 @@ function Login({setLogin}){
         }
     }
     return (
-        <section className="ftco-section" style={{backgroundColor: "#8DD7CF"}}>
+        <section className="ftco-section" style={{backgroundColor: "#fafafa"}}>
 		<div className="container">
 			<div className="row justify-content-center">
 				<div className="col-md-12 col-lg-10">

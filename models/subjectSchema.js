@@ -1,14 +1,14 @@
 const mongoose=require('mongoose')
 
 const subjectSchema=new mongoose.Schema({
+    subjectName:{
+        type:String,
+        required:true
+    },
     subjectID:{
         type:Number,
         required:true
     },
-    subjectName:{
-        type:String,
-        required:true
-    }
 },{timestamps:true}
 ) 
 

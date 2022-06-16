@@ -6,7 +6,7 @@ const bcrypt=require('bcrypt');
 const { hash } = require('bcrypt');
 const jwt=require('jsonwebtoken')
 
-const userCtrl={  
+const userCtrl={   
     registerUser: async (req,res)=>{
         try {
             const {firstname,lastname,birthday,email,password,cpassword,gender,roleID}=req.body;
@@ -18,7 +18,7 @@ const userCtrl={
             const hashPassword=await bcrypt.hash(password,10);
             const newUser=new Users({
                 roleID:roleID,
-                firstname:firstname,  
+                firstname:firstname,   
                 lastname:lastname,
                 username:username1,
                 gender:gender,
@@ -63,7 +63,7 @@ const userCtrl={
                     if(err)return res.send(false)
                     const userN=await Users.findById(user.id)
                     if(!userN)return res.send(false)
-                    return res.send(true)
+                    return res.send(userN)
                 })
             } catch (err) {
                 return res.status(400).json(err.message)
